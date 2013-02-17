@@ -1,0 +1,65 @@
+body {
+  font-family: "proxima-nova", sans-serif;
+  /*
+    Thin: 100
+    Regular Italic: 400
+    Semibold: 600
+  */
+  line-height: 1.4;
+  font-size: 16px;
+  @include bp(papa) {
+    font-size: 21px;
+  }
+  @include bp(baby) {
+    font-size: 14px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: 1px solid #dfdfdf;
+  line-height: 1.2;
+  b {
+    font-weight: 600;
+    color: $green;
+  }
+  padding: 0 0 0.25em 0;
+  margin: 0 0 0.5em 0;
+  .site-footer & {
+    border-bottom-color: #585656;
+  }
+}
+
+h1 {
+  font-weight: 100;
+  text-transform: uppercase;
+  border-bottom-size: 2px;
+  padding: 2em 0 0.5em 0;
+  margin: 0 0 1.5em 0;
+  @include bp(baby) {
+    margin: 0 0 0.5em 0;
+  }
+  @include bp(papa) {
+    margin: 0 0 0.5em 0;
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 100;
+}

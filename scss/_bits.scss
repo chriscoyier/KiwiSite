@@ -1,0 +1,41 @@
+$green: #51cd4b;
+
+%clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin bp($point) {
+  @if $point == 'baby' {
+    @media (max-width: 600px) { @content; }
+  }
+  @if $point == 'mama' {
+    @media (min-width: 601px) and (max-width: 1100px) { @content; }
+  }
+  @if $point == 'papa' {
+    @media (min-width: 1101px) { @content; }
+  }
+  @if $point == 'retina' {
+    @media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+      @content
+    }
+  }
+}
+
+%texture-light {
+  background: url(../images/subtle_dots.png);
+  @include bp(retina) {
+    background: url(../images/subtle_dots_@2X.png);
+    background-size: 27px 15px;
+  }
+}
+
+%texture-dark {
+  background: url(../images/dark_texture.png);
+  background-size: 3px 3px;
+}

@@ -1,0 +1,134 @@
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  overflow-y: scroll;
+  @extend %texture-light;
+}
+
+.page-wrap {
+  width: 70%;
+  margin: 0 auto;
+  @extend %clearfix;
+  position: relative;
+  @include bp(baby) {
+    width: 96%;
+  }
+}
+
+.main-content {
+  margin: 0 0 1em 0;
+  @extend %clearfix;
+}
+
+.module {
+  position: relative;
+  float: right;
+  margin-bottom: 2em;
+  overflow: hidden;
+  @include bp(mama) {
+    width: 31%;
+    margin-left: 3.5%;
+    height: 365px;
+    &:nth-child(3n) {
+      margin-left: 0;
+    }
+  }
+  @include bp(papa) {
+    width: 48%;
+    margin-left: 4%;
+    &:nth-child(2n+1) {
+      margin-left: 0;
+    }
+  }
+}
+
+.module-kiwi {
+  img {
+    width: 100%;
+  }
+  &:hover {
+    overflow: visible;
+    z-index: 1;
+    img {
+      @include filter (
+        grayscale(0%)
+      );
+    }
+  }
+  img {
+    @include filter (
+      grayscale(100%)
+    );
+  }
+  @include bp(baby) {
+    height: 150px;
+    &:hover {
+      padding-bottom: 200px;
+    }
+    img {
+      width: 33%;
+      float: left;
+      margin: 0 0.75em 0.1em 0;
+    }
+  }
+}
+
+.module-intro {
+  color: white;
+  padding: 1em;
+  background: $green;
+  p {
+    margin: 0;
+  }
+  @include bp(papa) {
+    float: none;
+    width: 100%;
+  }
+  @include bp(mama) {
+    @include background(
+      url(../images/map.svg) bottom center no-repeat,
+      $green
+    );
+  }
+}
+
+img {
+  // preemptive importants e.g. to fight flickr copy/pastes etc.
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.space {
+  .module:hover & {
+    @extend %texture-light;
+    box-shadow:
+      0 0 0 20px white,
+      0 40px 20px 10px rgba(black, 0.5);
+    @include bp(baby) {
+      box-shadow: none;
+    }
+    &:after {
+      opacity: 0;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    @include background(
+      linear-gradient(
+        top,
+        rgba(white, 0),
+        rgba(white, 1) 80%
+      )
+    );
+    @include bp(papa) {
+      display: none;
+    }
+  }
+}

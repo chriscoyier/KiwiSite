@@ -1,0 +1,35 @@
+.site-footer {
+  @extend %texture-dark;
+  color: white;
+  padding: 2em 0;
+}
+
+.map {
+  width: 66%;
+  float: left;
+  iframe {
+    width: 100%;
+  }
+}
+
+.donate {
+  width: 31%;
+  float: right;
+}
+
+.copyright {
+  width: 31%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@include bp(baby) {
+  .map, .donate {
+    width: 100%;
+    margin: 0 0 3em 0;
+  }
+  .copyright {
+    width: 100%;
+  }
+}

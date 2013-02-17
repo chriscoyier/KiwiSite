@@ -1,0 +1,29 @@
+.button {
+  display: block;
+  background: $green;
+  border-radius: 8px;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-shadow: 0 2px 0 rgba(black, 0.5);
+  @include background(
+    linear-gradient(#89f784, #068925)
+  );
+  border-bottom: 5px solid $green;
+  &:hover, &:focus {
+    @include background(
+    linear-gradient(
+      darken(#89f784, 5%),
+      darken(#068925, 5%)
+    )
+  );
+  }
+  &:active {
+    border: 0;
+    @include translateY(5px);
+  }
+}

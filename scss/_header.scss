@@ -1,0 +1,31 @@
+.site-header {
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  right: -8px;
+  top: 55px;
+  width: 180px;
+  height: 124px;
+  @include transition(all 3s ease);
+  @media (max-width: 735px) {
+    width: 90px;
+    height: 62px;
+    top: 110px;
+  }
+  @include bp(baby) {
+    width: 60px;
+    height: 41px;
+    right: 100%;
+    top: 25px;
+    margin-right: -60px;
+  }
+}
+
+#bird {
+  fill: $green;
+}
+#bird:hover {
+  fill: darken($green, 10%);
+}
